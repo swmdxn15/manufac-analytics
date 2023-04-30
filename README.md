@@ -22,7 +22,6 @@ This project includes the following features:
 
 - Line chart showing the relationship between "Flavanoids" and "Ash"
 - Bar chart showing the minimum "Magnesium" value for each "Alcohol" category
-- Mobile-responsive design tested on iPhone 5, iPhone X, iPad, iPad Pro, and general laptops
 - Clean code with modularity and a well-organized folder structure
 
 ## **Contributing**
