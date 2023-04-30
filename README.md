@@ -6,7 +6,7 @@ This is a data visualization project built with React and ECharts for React libr
 
 To install this project, follow these steps:
 
-1. Clone the repository: **`git clone https://github.com/yourusername/your-repo.git`**
+1. Clone the repository: **`git clone https://github.com/swmdxn15/manufac-analytics.git`**
 2. Install dependencies: **`yarn install`**
 
 ## **Usage**
