@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import WineData from './Wine-Data.json';
+import LineChart from './LineChart';
+import BarChart from './BarChart';
 
-function App() {
+
+const App = () => {
+  const flavanoids = WineData.map(item => item.Flavanoids);
+
+  const ash = WineData.map(item => item.Ash);
+
+  // This code block reduces the WineData array into an object that groups
+  // the unique alcohol values with the corresponding minimum magnesium value
+  // among all the wines with that alcohol value.
+  const alcoholData = WineData.reduce((acc, item) => {
+        const index = acc.findIndex(obj => obj.Alcohol === item.Alcohol);
+        if (index === -1) {
+          acc.push({ Alcohol: item.Alcohol, Magnesium: item.Magnesium });
+        } else if (item.Magnesium < acc[index].Magnesium) {
+          acc[index].Magnesium = item.Magnesium;
+        }
+        return acc;
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Line Chart</h1>
+      <LineChart flavAsh={[flavanoids, ash]} />
+      <h1>Bar Chart</h1>
+      <BarChart alcoholData={alcoholData} />
     </div>
   );
-}
+};
 
 export default App;
